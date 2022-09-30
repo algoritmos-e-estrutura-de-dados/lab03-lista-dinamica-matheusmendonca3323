@@ -4,13 +4,20 @@ from node import Node
 class Lista:
     inicio = None
 
-    def _init_(self):
+    def __init__(self):
         self.inicio = None
 
-    def adicionar(self, valor):
-        if (self.inicio == None):
-            self.inicio = Node(valor, None)
-
+    def adicionar(self, valor,inicio = False):
+        if (inicio):
+            self.adicionar_no_inicio =(valor)
+         else:
+            self.adicionar_no_fim(valor)
+            
+     def adicionar_no_inicio(self, valor):
+        valor = Node(valor)
+        valor.proximo = self.inicio
+        self.inicio = valor
+       
         else:
             aux = self.inicio
             while (aux.proximo != None):
